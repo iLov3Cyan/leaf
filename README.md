@@ -1,52 +1,42 @@
-# LEAF: A Benchmark for Federated Settings
+# LEAF Customization for Federated Learning Experiments
 
-## Resources
+This repository is a fork of [LEAF](https://github.com/TalwalkarLab/leaf), designed to explore and address the challenges posed by heterogeneity in Federated Learning environments.
 
-  * **Homepage:** [leaf.cmu.edu](https://leaf.cmu.edu)
-  * **Paper:** ["LEAF: A Benchmark for Federated Settings"](https://arxiv.org/abs/1812.01097)
+## Overview
 
-## Datasets
+Federated Learning (FL) introduces complex challenges due to the heterogeneity of participants, including variations in device capabilities, data distributions, and participant behaviors. This fork extends the functionality of LEAF to simulate and analyze these challenges, focusing on their impact on model performance, convergence, and fairness.
 
-1. FEMNIST
+## Methodology
 
-  * **Overview:** Image Dataset
-  * **Details:** 62 different classes (10 digits, 26 lowercase, 26 uppercase), images are 28 by 28 pixels (with option to make them all 128 by 128 pixels), 3500 users
-  * **Task:** Image Classification
+The modifications implemented in this repository include:
 
-2. Sentiment140
+1. **Heterogeneity Simulation**:
+   - Adjusted configurations to represent varying device capabilities (e.g., processing power, energy constraints, and network conditions).
+   - Introduced models for simulating non-IID data distributions across participants.
 
-  * **Overview:** Text Dataset of Tweets
-  * **Details** 660120 users
-  * **Task:** Sentiment Analysis
+2. **Behavioral Modeling**:
+   - Incorporated parameters to simulate diverse participant behaviors, including dropout rates and malicious actions.
+   - Added mechanisms to study the effects of fairness and reward distribution among participants.
 
-3. Shakespeare
+3. **Algorithmic Adjustments**:
+   - Evaluated advanced aggregation strategies to mitigate the effects of stragglers and system delays.
+   - Tested parameter tuning techniques to optimize performance in heterogeneous settings.
 
-  * **Overview:** Text Dataset of Shakespeare Dialogues
-  * **Details:** 1129 users (reduced to 660 with our choice of sequence length. See [bug](https://github.com/TalwalkarLab/leaf/issues/19).)
-  * **Task:** Next-Character Prediction
+4. **Performance Analysis**:
+   - Conducted experiments to measure the impact of heterogeneity on metrics such as model accuracy, convergence time, and resource utilization.
+   - Analyzed the results to propose potential solutions for enhancing Federated Learning in real-world scenarios.
 
-4. Celeba
+## Applications
 
-  * **Overview:** Image Dataset based on the [Large-scale CelebFaces Attributes Dataset](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
-  * **Details:** 9343 users (we exclude celebrities with less than 5 images)
-  * **Task:** Image Classification (Smiling vs. Not smiling)
+This fork provides a foundation for researchers to:
+- Study the impact of heterogeneity on Federated Learning models.
+- Develop and test strategies to mitigate heterogeneity-related challenges.
+- Enhance the robustness and scalability of FL systems in diverse environments.
 
-5. Synthetic Dataset
+## Acknowledgments
 
-  * **Overview:** We propose a process to generate synthetic, challenging federated datasets. The high-level goal is to create devices whose true models are device-dependant. To see a description of the whole generative process, please refer to the paper
-  * **Details:** The user can customize the number of devices, the number of classes and the number of dimensions, among others
-  * **Task:** Classification
+This project is based on the LEAF framework and extends its capabilities to address heterogeneity in Federated Learning. Special thanks to the original developers of LEAF and the research community for their contributions to this field.
 
-6. Reddit
+## License
 
-  * **Overview:** We preprocess the Reddit data released by [pushshift.io](https://files.pushshift.io/reddit/) corresponding to December 2017.
-  * **Details:** 1,660,820 users with a total of 56,587,343 comments. 
-  * **Task:** Next-word Prediction.
-
-## Notes
-
-- Install the libraries listed in ```requirements.txt```
-    - I.e. with pip: run ```pip3 install -r requirements.txt```
-- Go to directory of respective dataset for instructions on generating data
-    - in MacOS check if ```wget``` is installed and working
-- ```models``` directory contains instructions on running baseline reference implementations
+This project inherits the original LEAF [MIT License](https://opensource.org/licenses/MIT).
